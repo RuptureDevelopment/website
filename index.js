@@ -1,8 +1,7 @@
 const express = require('express');
 const path = require('path');
 
-const PORT = 3000;
-const HOST = '0.0.0.0';
+const port = 3000;
 
 const app = express();
 
@@ -13,4 +12,6 @@ app.get('/', (req, res ) => {
 app.use(express.static(__dirname + '/Script'));
 //Store all JS and CSS in Scripts folder.
 
-app.listen(PORT, HOST);
+app.listen(port, function () {
+    console.log('Umbler listening on port %s', port);
+});
