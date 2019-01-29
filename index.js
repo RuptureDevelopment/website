@@ -12,6 +12,16 @@ app.get('/', (req, res ) => {
 app.use(express.static(__dirname + '/Script'));
 //Store all JS and CSS in Scripts folder.
 
+app.enable('trust proxy');
+
+app.use((req, res) =>{
+    if(req.secure){
+        next();
+    } else{
+        res.redirect( `https://${req.headers.host}${req.url}`);
+    }
+});
+
 app.listen(port, function () {
     console.log('Umbler listening on port %s', port);
 });
