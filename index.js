@@ -9,6 +9,10 @@ app.get('/', (req, res ) => {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
+app.get('/development', (req, res ) => {
+    res.sendFile(path.join(__dirname + '/new-index.html'));
+});
+
 app.use(express.static(__dirname + '/Script'));
 //Store all JS and CSS in Scripts folder.
 
